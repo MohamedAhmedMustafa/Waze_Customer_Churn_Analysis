@@ -43,10 +43,10 @@ if uploaded_file is not None:
             print(test_data)
             # Use only the first 100 columns if there are more
             # Convert 'device' column to categorical codes
-            test_data['device'] = pd.Categorical(test_data['device']).codes
+            test_data[-1] = pd.Categorical(test_data[-1]).codes
             
             # Drop the 'ID' column
-            test_data = test_data.drop(columns=['ID'])
+            test_data = test_data.drop(columns=[0])
             
             # Drop any rows with missing values
             test_data = test_data.dropna()
@@ -61,7 +61,7 @@ if uploaded_file is not None:
             test_data = test_data_filtered
             
             # Drop the 'device' column
-            test_data = test_data.drop(columns=['device'])
+            test_data = test_data.drop(columns=[-1])
             
             # Drop rows with missing values again, if any
             test_data = test_data.dropna()
