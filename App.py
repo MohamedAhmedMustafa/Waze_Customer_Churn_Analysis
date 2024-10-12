@@ -41,7 +41,7 @@ if uploaded_file is not None:
             st.error("Uploaded file must contain at least 12 columns.")
         else:
             # Use only the first 100 columns if there are more
-            test_data = preprocessing_df(test_data)
+            #test_data = preprocessing_df(test_data)
 
             # First, use XGBoost to predict if the ECG is abnormal
             if st.button("Predict"):
