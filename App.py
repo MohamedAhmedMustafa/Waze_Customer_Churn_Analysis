@@ -60,7 +60,7 @@ if uploaded_file is not None:
                 results_placeholder.empty()
 
                 # Predict using XGBoost
-                binary_pred = Churn_model.predict(X_test)
+                binary_pred = Churn_model.predict(test_data)
                 results_data = []
 
                 # Loop through each prediction and collect the result
