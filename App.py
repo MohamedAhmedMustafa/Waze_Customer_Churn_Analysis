@@ -40,8 +40,8 @@ if uploaded_file is not None:
         test_data = pd.read_csv(uploaded_file, header=None)
         num_columns = test_data.shape[1]
 
-        if num_columns < 12:
-            st.error("Uploaded file must contain at least 12 columns.")
+        if num_columns < 10:
+            st.error("Uploaded file must contain at least 10 columns.")
         else:
             # Use only the first 100 columns if there are more
             test_data = preprocessing_df(test_data)
