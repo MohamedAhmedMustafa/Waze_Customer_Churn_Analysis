@@ -41,7 +41,7 @@ if uploaded_file is not None:
             st.error("Uploaded file must contain at least 11 columns.")
         else:
             for col in test_data.select_dtypes(include=['object']).columns:
-            test_data[col] = pd.Categorical(test_data[col]).codes
+                test_data[col] = pd.Categorical(test_data[col]).codes
             # First, use XGBoost to predict if the ECG is abnormal
             if st.button("Predict"):
                 # Clear previous results
