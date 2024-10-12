@@ -42,8 +42,6 @@ if uploaded_file is not None:
         else:
             # Use only the first 100 columns if there are more
             test_data = preprocessing_df(test_data)
-            results_placeholder.write(test_data)
-            X_test = test_data.iloc[:, :]
 
             # First, use XGBoost to predict if the ECG is abnormal
             if st.button("Predict"):
@@ -51,7 +49,7 @@ if uploaded_file is not None:
                 results_placeholder.empty()
 
                 # Predict using XGBoost
-                binary_pred = Churn_model.predict(X_test)
+                binary_pred = Churn_model.predict(test_data)
                 results_data = []
 
                 # Loop through each prediction and collect the result
