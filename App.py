@@ -37,8 +37,8 @@ if uploaded_file is not None:
         num_columns = test_data.shape[1]
 
         # Check for the expected number of columns
-        if num_columns < 10:
-            st.error("Uploaded file must contain exactly 10 columns for features.")
+        if num_columns < 13:
+            st.error("Uploaded file must contain exactly 13 columns for features.")
         else:
             for col in test_data.select_dtypes(include=['object']).columns:
                 test_data[col] = pd.Categorical(test_data[col]).codes
