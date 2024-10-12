@@ -42,7 +42,7 @@ if uploaded_file is not None:
         else:
             # Use only the first 100 columns if there are more
             #test_data = preprocessing_df(test_data)
-
+            test_data.drop(columns=['device'], inplace=True)
             # First, use XGBoost to predict if the ECG is abnormal
             if st.button("Predict"):
                 # Clear previous results
