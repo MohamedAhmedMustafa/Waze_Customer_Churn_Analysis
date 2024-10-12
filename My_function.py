@@ -1,7 +1,7 @@
 import pandas as pd
 def preprocessing_df(df):
-  df['device'] = pd.Categorical(df['device']).codes
-  df = df.drop(columns=[['ID', 'device']])
+  #df['device'] = pd.Categorical(df['device']).codes
+  df = df.drop(columns=['ID'])
   df = df.dropna()
   df1 = df.drop(columns=['label'])
   df2 = df['label']
