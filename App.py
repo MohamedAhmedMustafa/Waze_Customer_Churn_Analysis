@@ -41,7 +41,29 @@ if uploaded_file is not None:
             st.error("Uploaded file must contain at least 12 columns.")
         else:
             # Use only the first 100 columns if there are more
-            test_data = preprocessing_df(test_data)
+            # Convert 'device' column to categorical codes
+            test_data['device'] = pd.Categorical(test_data['device']).codes
+            
+            # Drop the 'ID' column
+            test_data = test_data.drop(columns=['ID'])
+            
+            # Drop any rows with missing values
+            test_data = test_data.dropna()
+            
+            # Calculate the 95th percentile for each column
+            percentiles_99 = test_data.quantile(0.95)
+            
+            # Filter out records where values exceed the 95th percentile in any column
+            test_data_filtered = test_data[(test_data <= percentiles_99).all(axis=1)]
+            
+            # Reassign filtered data back to test_data
+            test_data = test_data_filtered
+            
+            # Drop the 'device' column
+            test_data = test_data.drop(columns=['device'])
+            
+            # Drop rows with missing values again, if any
+            test_data = test_data.dropna()
             
             # First, use XGBoost to predict if the ECG is abnormal
             if st.button("Predict"):
