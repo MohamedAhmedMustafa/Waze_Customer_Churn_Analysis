@@ -70,7 +70,7 @@ if uploaded_file is not None:
                     results_data.append(row)
 
                 # Create a DataFrame without the Index column
-                results_df = pd.DataFrame(results_data, columns=["Binary Prediction", "Detailed Prediction"])
+                results_df = pd.DataFrame(results_data, columns=["Binary Prediction"])
 
                 # Display the DataFrame in Streamlit without index
                 results_placeholder.write(results_df)
