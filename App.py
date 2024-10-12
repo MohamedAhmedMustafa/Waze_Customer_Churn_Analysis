@@ -40,6 +40,7 @@ if uploaded_file is not None:
         if num_columns < 12:
             st.error("Uploaded file must contain at least 12 columns.")
         else:
+            print(test_data)
             # Use only the first 100 columns if there are more
             # Convert 'device' column to categorical codes
             test_data['device'] = pd.Categorical(test_data['device']).codes
