@@ -42,6 +42,7 @@ if uploaded_file is not None:
         else:
             # Use only the first 100 columns if there are more
             test_data = preprocessing_df(test_data)
+            results_placeholder.write(test_data)
             X_test = test_data.iloc[:, :]
 
             # First, use XGBoost to predict if the ECG is abnormal
