@@ -17,7 +17,11 @@ def load_models():
         Churn_model = pickle.load(f)
 
     with open('preprocessing.pkl', 'rb') as f:
-        loaded_function = pickle.load(f)
+       try:
+        loaded_func = pickle.load(f)
+        print("Loaded successfully:", loaded_func)
+       except Exception as e:
+        print("Error while loading the pickle file:", e)
 
     return Churn_model ,loaded_func 
 
