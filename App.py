@@ -37,7 +37,7 @@ results_placeholder = st.empty()
 if uploaded_file is not None:
     try:
         # Read the uploaded CSV file
-        test_data = pd.read_csv(uploaded_file, header=None)
+        test_data = pd.read_csv(uploaded_file, header=0)
         num_columns = test_data.shape[1]
 
         if num_columns < 10:
