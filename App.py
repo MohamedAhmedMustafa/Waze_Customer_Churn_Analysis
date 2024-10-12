@@ -1,7 +1,8 @@
-#import pip
-#pip.main(['install','cmake'])
-#pip.main(['install','pyarrow'])
-#pip.main(['install','streamlit'])
+import pip
+pip.main(['install','cmake'])
+pip.main(['install','pyarrow'])
+pip.main(['install','streamlit'])
+from My_function import preprocessing_df
 import streamlit as st
 import pandas as pd
 import pickle
@@ -10,18 +11,14 @@ import zipfile
 # Load models
 @st.cache_resource
 def load_models():
-    with zipfile.ZipFile('/mount/src/waze_customer_churn_analysis/ChurnModelandPreprocessing.zip', 'r') as zip_ref:
+    with zipfile.ZipFile('ChurnModelandPreprocessing.zip', 'r') as zip_ref:
         zip_ref.extractall()
 
     with open('Churn_model.pkl', 'rb') as f:
         Churn_model = pickle.load(f)
 
     with open('preprocessing.pkl', 'rb') as f:
-       try:
         loaded_func = pickle.load(f)
-        print("Loaded successfully:", loaded_func)
-       except Exception as e:
-        print("Error while loading the pickle file:", e)
 
     return Churn_model ,loaded_func 
 
