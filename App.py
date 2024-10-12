@@ -38,6 +38,9 @@ if uploaded_file is not None:
     try:
         # Read the uploaded CSV file
         test_data = pd.read_csv(uploaded_file, header=0)
+        expected_columns = ['activity_days', 'drives', 'driving_days', 'n_days_after_onboarding', 
+                            'total_sessions', 'sessions', 'total_navigations_fav2', 
+                            'total_navigations_fav1', 'driven_km_drives', 'duration_minutes_drives']
         num_columns = test_data.shape[1]
         missing_columns = [col for col in expected_columns if col not in test_data.columns]
 
