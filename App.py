@@ -17,7 +17,7 @@ def load_models():
         Churn_model = pickle.load(f)
 
     with open('preprocessing.pkl', 'rb') as f:
-        loaded_func = pickle.load(f)
+        loaded_function = pickle.load(f)
 
     return Churn_model ,loaded_func 
 
