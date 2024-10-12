@@ -43,6 +43,8 @@ if uploaded_file is not None:
         if num_columns < 10:
             st.error("Uploaded file must contain at least 10 columns.")
         else:
+            for col in test_data.columns:
+                test_data[col] = pd.to_numeric(test_data[col], errors='coerce')
             # Use only the first 100 columns if there are more
             test_data = preprocessing_df(test_data)
             X_test = test_data.iloc[:, :]
