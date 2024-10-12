@@ -11,7 +11,7 @@ import zipfile
 # Load models
 @st.cache_resource
 def load_models():
-    with zipfile.ZipFile('ChurnModelandPreprocessing.zip', 'r') as zip_ref:
+    with zipfile.ZipFile('/mount/src/waze_customer_churn_analysis/ChurnModelandPreprocessing.zip', 'r') as zip_ref:
         zip_ref.extractall()
 
     with open('Churn_model.pkl', 'rb') as f:
