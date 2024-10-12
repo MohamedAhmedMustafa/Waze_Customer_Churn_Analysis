@@ -17,13 +17,10 @@ def load_models():
     with open('Churn_model.pkl', 'rb') as f:
         Churn_model = pickle.load(f)
 
-    with open('preprocessing.pkl', 'rb') as f:
-        loaded_func = pickle.load(f)
-
-    return Churn_model ,loaded_func 
+    return Churn_model 
 
 # Load the models
-Churn_model ,preprocessing_df = load_models()
+Churn_model = load_models()
 
 # Streamlit App Code
 st.title("Waze Customer Churn Analysis")
