@@ -39,6 +39,7 @@ if uploaded_file is not None:
         # Read the uploaded CSV file
         test_data = pd.read_csv(uploaded_file, header=0)
         num_columns = test_data.shape[1]
+        missing_columns = [col for col in expected_columns if col not in test_data.columns]
 
         if num_columns < 10:
             st.error("Uploaded file must contain at least 10 columns.")
